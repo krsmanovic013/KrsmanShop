@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "title": "Huawei 10 Pro",
+    "image": {
+      "src": "img/huawei10pro.png",
+      "alt": "Huawei 10 Pro"
+    },
+    "price": {
+      "old": null,
+      "new": 899.99
+    },
+    "idBrend": 4,
+    "idCellular": 2,
+    "idRegion": 3
+  },
+  {
+    "id": 2,
+    "title": "Iphone 12",
+    "image": {
+      "src": "img/ajfon12.png",
+      "alt": "Iphone 12"
+    },
+    "price": {
+      "old": null,
+      "new": 799.99
+    },
+    "idBrend": 3,
+    "idCellular": 2,
+    "idRegion": 2
+  },
+  {
+    "id": 3,
+    "title": "Huawei P50 Pocket",
+    "image": {
+      "src": "img/huaweip50pocket.png",
+      "alt": "Huawei P50 Pocket"
+    },
+    "price": {
+      "old": null,
+      "new": 1299.99
+    },
+    "idBrend": 4,
+    "idCellular": 3,
+    "idRegion": 1
+  },
+  {
+    "id": 4,
+    "title": "Iphone 14 Pro",
+    "image": {
+      "src": "img/ajfon14pro.png",
+      "alt": "Iphone 14 pro"
+    },
+    "price": {
+      "old": null,
+      "new": 1599.99
+    },
+    "idBrend": 3,
+    "idCellular": 3,
+    "idRegion": 2
+  },
+  {
+    "id": 5,
+    "title": "Samsung Galaxy S23",
+    "image": {
+      "src": "img/s23.jpg",
+      "alt": "Samsung Galaxy S23"
+    },
+    "price": {
+      "old": null,
+      "new": 1099.99
+    },
+    "idBrend": 1,
+    "idCellular": 3,
+    "idRegion": 1
+  },
+  {
+    "id": 6,
+    "title": "Iphone SE",
+    "image": {
+      "src": "img/ajfonse2022.png",
+      "alt": "Iphone SE"
+    },
+    "price": {
+      "old": null,
+      "new": 499.99
+    },
+    "idBrend": 3,
+    "idCellular": 1,
+    "idRegion": 1
+  },
+  {
+    "id": 7,
+    "title": "Xiaomi 12",
+    "image": {
+      "src": "img/xiaomi12.webp",
+      "alt": "Xiaomi 12"
+    },
+    "price": {
+      "old": null,
+      "new": 999.99
+    },
+    "idBrend": 2,
+    "idCellular": 2,
+    "idRegion": 3
+  },
+  {
+    "id": 8,
+    "title": "Xiaomi 13",
+    "image": {
+      "src": "img/xiaomi13.jpg",
+      "alt": "Xiaomi 13"
+    },
+    "price": {
+      "old": null,
+      "new": 1299.99
+    },
+    "idBrend": 2,
+    "idCellular": 3,
+    "idRegion": 1
+  },
+  {
+    "id": 9,
+    "title": "Samsung Z Fold4",
+    "image": {
+      "src": "img/zfold4.png",
+      "alt": "Iphone 14 pro"
+    },
+    "price": {
+      "old": null,
+      "new": 1799.99
+    },
+    "idBrend": 1,
+    "idCellular": 3,
+    "idRegion": 1
+  },
+  {
+    "id": 10,
+    "title": "Huawei 10 SE",
+    "image": {
+      "src": "img/huawei10se.jpg",
+      "alt": "Huawei 10 SE"
+    },
+    "price": {
+      "old": null,
+      "new": 699.99
+    },
+    "idBrend": 4,
+    "idCellular": 1,
+    "idRegion": 3
+  },
+  {
+    "id": 11,
+    "title": "Iphone 14",
+    "image": {
+      "src": "img/ajfon14.jpg",
+      "alt": "Iphone 14"
+    },
+    "price": {
+      "old": null,
+      "new": 1199.99
+    },
+    "idBrend": 3,
+    "idCellular": 3,
+    "idRegion": 2
+  },
+  {
+    "id": 12,
+    "title": "Xiaomi 13 Lite",
+    "image": {
+      "src": "img/xiaomi13lite.jpg",
+      "alt": "Xiaomi 13 Lite"
+    },
+    "price": {
+      "old": null,
+      "new": 649.99
+    },
+    "idBrend": 2,
+    "idCellular": 2,
+    "idRegion": 2
+  }
+]

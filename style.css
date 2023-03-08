@@ -1,0 +1,76 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  background-color: #e9f4fc;
+}
+.wrapper {
+  margin: 0px auto;
+  width: 85%;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+#btnOsveziKorpu {
+  width: 120px;
+}
+
+#btnNazad {
+  width: 120px;
+}
+
+.fakeHeight {
+  min-height: 75vh;
+}
+
+header nav a.navbar-brand {
+  font-size: 30px;
+}
+header nav .collapse ul li {
+  font-size: 18px;
+}
+
+section #products .row .product {
+  width: 18rem;
+}
+section #products .row .product .card-body h5 {
+  font-size: 16px;
+}
+section #products .row .product .card-body .price p.staraCena {
+  font-size: 12px;
+}
+section #products .row .product .card-body .price p.trenutnaCena {
+  font-size: 20px;
+}
+
+#cover {
+  background-image: url("../img/cover.jpg");
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slika-korpa {
+  width: 135px;
+}
+
+.klasa {
+  text-align: center;
+}
+
+.boja {
+  background-color: #001f3f !important;
+  color: #e9f4fc !important;
+}
+#btnn {
+  display: block;
+  width: 160px;
+  margin: 0 auto;
+  margin-top: 15px !important;
+}

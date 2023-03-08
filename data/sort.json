@@ -1,0 +1,22 @@
+[
+  {
+    "value": "default",
+    "naziv": "Default"
+  },
+  {
+    "value": "a-z",
+    "naziv": "Name A-Z"
+  },
+  {
+    "value": "z-a",
+    "naziv": "Name Z-A"
+  },
+  {
+    "value": "price-asc",
+    "naziv": "Price Ascending"
+  },
+  {
+    "value": "price-desc",
+    "naziv": "Price Descending"
+  }
+]
