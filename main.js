@@ -44,6 +44,10 @@ let market = dohvatiLocal("market");
 function dohvatiLocal(ime) {
   return JSON.parse(localStorage.getItem(ime));
 }
+//Funkcija za setovanje u local storage
+function setujLocal(ime, data) {
+  localStorage.setItem(ime, JSON.stringify(data));
+}
 
 if (url == "/shop.html") {
   //Funkcija za pravljenje checkbox liste
@@ -112,12 +116,22 @@ if (url == "/shop.html") {
             <h5 class='card-title klasa'>${obj.title}</h5>
             <hr />
             <div class='price klasa'>$${obj.price.new}</div>
-            <a href='${obj.id}' class='btn boja my-1 dugmeCart' id='btnn'><i class='fa-solid fa-cart-shopping'> Add</i></a>
+           <button class='btn boja my-1 dugmeCart' id='btnn' data-id='${obj.id}'><i class='fa-solid fa-cart-shopping'> Add</i></button>
         </div>
     </div>`;
     }
     ispis += "</div>";
     document.querySelector("#products").innerHTML = ispis;
+
+    //Add to cart dugme
+    const btnAddToCard = document.querySelectorAll(".dugmeCart");
+    for (let btn of btnAddToCard) {
+      btn.onclick = (e) => {
+        e.preventDefault();
+        idProizvoda = btn.getAttribute("data-id");
+        addToCart(idProizvoda);
+      };
+    }
   }
 
   //Search po name-u
@@ -129,16 +143,6 @@ if (url == "/shop.html") {
     );
     ispisProzivoda(novi);
   };
-
-  //Add to cart dugme
-  const btnAddToCard = document.querySelectorAll(".dugmeCart");
-  for (let btn of btnAddToCard) {
-    btn.onclick = (e) => {
-      e.preventDefault();
-      idProizvoda = e.target.getAttribute("href");
-      console.log(idProizvoda);
-    };
-  }
 
   // sortiranje
   function sortiranje(nizProizvoda) {
@@ -238,6 +242,7 @@ if (url == "/shop.html") {
     return filtriraniNiz;
   }
 }
+
 //Ispis nav
 ajax("data/nav.json", "nav");
 let nav = dohvatiLocal("nav");
@@ -260,3 +265,53 @@ ispisNav(nav);
 
 //dinamicka godina footer
 document.querySelector("#god").innerHTML = new Date().getFullYear();
+
+//CART
+
+function addToCart(id) {
+  let korpaProizvodi = dohvatiLocal("korpaProizvodi");
+
+  if (korpaProizvodi) {
+    if (proizvodPostoji()) {
+      povecaj();
+    } else {
+      dodajUKorpu();
+    }
+  } else {
+    dodajPrvi();
+  }
+  //Dodavanje prvog proizvoda , samo u slucaju da je korpa bila skroz prazna !
+  function dodajPrvi() {
+    let nizPr = [];
+    nizPr[0] = {
+      id: id,
+      kolicina: 1,
+    };
+    setujLocal("korpaProizvodi", nizPr);
+  }
+
+  //Provera da li dodajemo novi proizvod ili samo povecavamo kolicinu
+  function proizvodPostoji() {
+    return korpaProizvodi.find((a) => a.id == id); //vraca undefined ako ne postoji
+  }
+
+  //Povecavanje kolicine
+  function povecaj() {
+    let pr = dohvatiLocal("korpaProizvodi");
+    let item = pr.find((a) => a.id == id);
+    item.kolicina++;
+    setujLocal("korpaProizvodi", pr);
+  }
+
+  //Dodavanje novog proizvoda
+  function dodajUKorpu() {
+    //a
+    let pr = dohvatiLocal("korpaProizvodi");
+    let obj = {
+      id: id,
+      kolicina: 1,
+    };
+    pr.push(obj);
+    setujLocal("korpaProizvodi", pr);
+  }
+}
