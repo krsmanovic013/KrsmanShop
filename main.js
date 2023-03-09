@@ -9,6 +9,9 @@ window.onload = () => {
   ajax("data/cellular-data.json", "cellular");
   ajax("data/sort.json", "sort");
   ajax("data/market.json", "market");
+  if (url == "/index.html" || url == "/") {
+    ispisTrending(trending);
+  }
 
   if (url == "/shop.html") {
     document.querySelector("#ddlSelect").onchange = () => {
@@ -156,7 +159,7 @@ if (url == "/shop.html") {
     let izbor = $("#ddlSelect").val();
 
     if (izbor == "default") {
-      sortiraniProizvodi = nizProizvoda;
+      sortiraniProizvodi = dohvatiLocal("proizvodi");
     } else {
       sortiraniProizvodi = nizProizvoda.sort(function (a, b) {
         if (izbor == "price-asc") {
@@ -394,16 +397,17 @@ if (url == "/cart.html") {
                   </div>
                     `;
       }
+      ispis += `<div class="card">
+      <div class="card-body">
+        <button type="button" class="btn boja btn-block btn-lg">
+          Proceed to Pay
+        </button>
+      </div>
+    </div>`;
     } else {
       ispis = `<h1>Cart is empty</h1>`;
     }
-    ispis += `<div class="card">
-    <div class="card-body">
-      <button type="button" class="btn boja btn-block btn-lg">
-        Proceed to Pay
-      </button>
-    </div>
-  </div>`;
+
     document.querySelector("#ispisKart").innerHTML = ispis;
 
     //Brisanje iz korpe
@@ -588,9 +592,9 @@ if (url == "/contact-us.html") {
 //Author sekcija
 
 if (url == "/index.html") {
-  const div = document.querySelector("#trending");
+  var div = document.querySelector("#trending");
   ajax("data/trending.json", "trending");
-  let trending = dohvatiLocal("trending");
+  var trending = dohvatiLocal("trending");
 
   function ispisTrending(data) {
     let ispis = "";
@@ -603,5 +607,5 @@ if (url == "/index.html") {
     }
     div.innerHTML = ispis;
   }
-  ispisTrending(trending);
+  // ispisTrending(trending);
 }
