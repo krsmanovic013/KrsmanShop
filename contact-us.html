@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <title>WP2</title>
+
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/20e4f2537d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  </head>
+  <body>
+    <header class="bg-primary boja">
+      <nav class="navbar navbar-expand-lg navbar-dark wrapper">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">KrsmanShop</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav"></div>
+        </div>
+      </nav>
+    </header>
+    <!-- https://mdbootstrap.com/docs/b4/jquery/forms/basic/ -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto my-5">
+          <!-- Default form contact -->
+          <form class="text-center border border-light p-5">
+            <p class="h4 mb-4">Contact us</p>
+
+            <!-- Name -->
+            <input
+              type="text"
+              id="firstName"
+              class="form-control mb-4"
+              placeholder="example Milos"
+            />
+
+            <!-- Email -->
+            <input
+              type="email"
+              id="email"
+              class="form-control mb-4"
+              placeholder="me@example.com"
+            />
+
+            <!-- Subject -->
+            <label>Select your region:</label>
+            <select class="form-control custom-select mb-4" id="ddl">
+              <option value="0">Choose option</option>
+              <option value="1">USA</option>
+              <option value="2">Europe</option>
+              <option value="3">China</option>
+            </select>
+
+            <!-- Message -->
+            <div class="form-group">
+              <textarea
+                class="form-control rounded-0"
+                id="msg"
+                rows="3"
+                placeholder="Message (minimum 10 characters)"
+              ></textarea>
+            </div>
+
+            <!-- Policy -->
+            <div class="custom-control custom-checkbox mb-4 polisa">
+              <input type="checkbox" class="custom-control-input" id="chb" />
+              <label class="custom-control-label" for="defaultContactFormCopy"
+                >I read and agree with our policy</label
+              >
+            </div>
+
+            <!-- Send button -->
+            <button class="btn btn-info btn-block" id="btnS">
+              Send ticket
+            </button>
+          </form>
+          <!-- Default form contact -->
+        </div>
+      </div>
+    </div>
+    <footer class="boja dole">
+      <div class="container wrapper">
+        <div class="row align-items-center py-3">
+          <div class="col-lg-3 col-12 container">
+            <div class="row">
+              <div class="col">
+                <span id="emailNlErr" class="text-danger"></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6" id="footerNavbar"></div>
+          <div class="col-lg-3 col-6" id="footerLinks"></div>
+        </div>
+        <hr />
+        <div class="row py-3">
+          <div class="col-12 d-flex justify-content-center align-items-center">
+            <h4>Milos Krsmanovic 22/20 &copy; <span id="god"></span></h4>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Izmeniti -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>

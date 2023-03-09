@@ -455,3 +455,132 @@ function obrada(id, niz) {
     }
   }
 }
+
+if (url == "/contact-us.html") {
+  let br;
+  //Funkcija provera
+  function proveri(ime, regex) {
+    // let regex = /^[A-Z][a-z]{2,19}$/;
+    if (regex.test(ime)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  //Funkcija provera imena
+  function proveriIme() {
+    if (proveri(ime.value, /^[A-Z][a-z]{2,19}$/)) {
+      ime.classList.remove("border");
+      ime.classList.remove("border-danger");
+    } else {
+      ime.classList.add("border");
+      ime.classList.add("border-danger");
+      br++;
+    }
+  }
+
+  //Funkcija proveri email
+  function proveriEmail() {
+    if (
+      proveri(
+        email.value,
+        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+      )
+    ) {
+      email.classList.remove("border");
+      email.classList.remove("border-danger");
+    } else {
+      email.classList.add("border");
+      email.classList.add("border-danger");
+      br++;
+    }
+  }
+
+  //Funkcija proveri ddl
+  function proveriDdl() {
+    let id = ddl.options[ddl.selectedIndex].value;
+    if (id == "0") {
+      ddl.classList.add("border");
+      ddl.classList.add("border-danger");
+      br++;
+    } else {
+      ddl.classList.remove("border");
+      ddl.classList.remove("border-danger");
+    }
+  }
+
+  //Funkcija proveri msg
+  function proveriMsg() {
+    if (msg.value.length < 10) {
+      msg.classList.add("border");
+      msg.classList.add("border-danger");
+      br++;
+    } else {
+      msg.classList.remove("border");
+      msg.classList.remove("border-danger");
+    }
+  }
+
+  //Funkcija proveri checkbox
+  function proveriChb() {
+    if (box.checked) {
+      document.querySelector(".polisa").classList.remove("border");
+      document.querySelector(".polisa").classList.remove("border-danger");
+    } else {
+      document.querySelector(".polisa").classList.add("border");
+      document.querySelector(".polisa").classList.add("border-danger");
+      br++;
+    }
+  }
+
+  //Ime onBlur
+  const ime = document.querySelector("#firstName");
+  ime.onblur = () => {
+    proveriIme();
+  };
+
+  //Provera email-a
+  const email = document.querySelector("#email");
+  email.onblur = () => {
+    proveriEmail();
+  };
+
+  //Provera DDL region
+  const ddl = document.querySelector("#ddl");
+  ddl.onchange = () => {
+    proveriDdl();
+  };
+
+  //Provera msg
+  const msg = document.querySelector("#msg");
+  msg.onblur = () => {
+    proveriMsg();
+  };
+
+  //Provera checkbox-a
+  const box = document.querySelector("#chb");
+  box.onclick = () => {
+    proveriChb();
+  };
+
+  //Provera klikom na dugme
+  const btn = document.querySelector("#btnS");
+  btn.onclick = (e) => {
+    e.preventDefault();
+    br = 0;
+    proveriIme();
+    proveriDdl();
+    proveriEmail();
+    proveriMsg();
+    proveriChb();
+    if (br == 0) {
+      alert("Successful sent");
+      ime.value = "";
+      email.value = "";
+      msg.value = "";
+      box.checked = false;
+      ddl.selectedIndex = 0;
+    }
+  };
+}
