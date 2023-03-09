@@ -584,3 +584,24 @@ if (url == "/contact-us.html") {
     }
   };
 }
+
+//Author sekcija
+
+if (url == "/index.html") {
+  const div = document.querySelector("#trending");
+  ajax("data/trending.json", "trending");
+  let trending = dohvatiLocal("trending");
+
+  function ispisTrending(data) {
+    let ispis = "";
+    for (let obj of data) {
+      ispis += `
+      <div class="box">
+      <img src="${obj.image.src}" class="img-fluid" alt='${obj.image.alt}'/>
+    </div>
+      `;
+    }
+    div.innerHTML = ispis;
+  }
+  ispisTrending(trending);
+}

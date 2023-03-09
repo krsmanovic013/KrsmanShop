@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "image": {
+      "src": "img/ajfon14pro.png",
+      "alt": "Iphone 14 pro"
+    }
+  },
+  {
+    "id": 2,
+    "image": {
+      "src": "img/huaweip50pocket.png",
+      "alt": "Huawei P50 Pocket"
+    }
+  },
+  {
+    "id": 3,
+    "image": {
+      "src": "img/ajfon12.png",
+      "alt": "Iphone 12"
+    }
+  },
+  {
+    "id": 4,
+    "image": {
+      "src": "img/xiaomi12.webp",
+      "alt": "Xiaomi 12"
+    }
+  }
+]
