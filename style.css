@@ -101,3 +101,7 @@ header {
   right: 0px;
   left: 0px;
 }
+#slika {
+  width: 80%;
+  border-radius: 30px;
+}
