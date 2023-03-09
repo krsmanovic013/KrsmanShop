@@ -362,28 +362,20 @@ if (url == "/cart.html") {
                           </p>
                         </div>
                         <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                          <button
-                            class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                          >
-                            <i class="fas fa-minus"></i>
-                          </button>
+                          
               
                           <input
                             id="kol"
-                            min="0"
+                            
+                            data-id='${p.id}'
                             name="quantity"
-                            value="${p.kolicina}"
-                            type="number"
-                            class="form-control form-control-sm"
+                            value="Quantity: ${p.kolicina}"
+                            type="text"
+                            class="form-control form-control-sm kol"
+                            readonly
                           />
               
-                          <button
-                            class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                          >
-                            <i class="fas fa-plus"></i>
-                          </button>
+                          
                         </div>
                         <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                           <h5 class="mb-0">$${(
@@ -430,16 +422,19 @@ if (url == "/cart.html") {
       };
     }
     //quantity u korpi
-    let kol = document.querySelector("#kol");
-    kol.onchange = () => {
-      //a
-    };
 
-    //Fix footera da se ne raspada
+    //Fix footera da se ne raspada veliki i srednji ekrani
     if (prKorpa.length < 3) {
       document.getElementById("footer").classList.add("fix");
     } else {
       document.getElementById("footer").classList.remove("fix");
+    }
+
+    //Fix footera mobile
+    if (prKorpa.length < 1) {
+      document.getElementById("footer").classList.add("fixx");
+    } else {
+      document.getElementById("footer").classList.remove("fixx");
     }
   }
   ispisKorpa();

@@ -79,9 +79,19 @@ header {
   top: 0;
   z-index: 1000;
 }
-.fix {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+@media (min-width: 765px) {
+  .fix {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@media (max-width: 765px) {
+  .fixx {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
