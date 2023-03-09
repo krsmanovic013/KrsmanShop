@@ -132,6 +132,12 @@ if (url == "/shop.html") {
         addToCart(idProizvoda);
       };
     }
+
+    if (data.length < 5) {
+      document.querySelector("#futer").classList.add("fix");
+    } else {
+      document.querySelector("#futer").classList.remove("fix");
+    }
   }
 
   //Search po name-u
@@ -256,7 +262,7 @@ function ispisNav(data) {
   }
   ispis += `<a href='cart.html' class='btn  text-light ms-0 ms-lg-3'>
                 <i class='fa-solid fa-cart-shopping'></i>
-                <span id='cartItemsCounter'></span>
+                <span id='cartItemsCounter'>${brojProizvoda()}</span>
            </a>
          </ul>`;
   document.querySelector("#navbarNav").innerHTML = ispis;
@@ -270,15 +276,16 @@ document.querySelector("#god").innerHTML = new Date().getFullYear();
 
 function addToCart(id) {
   let korpaProizvodi = dohvatiLocal("korpaProizvodi");
-
   if (korpaProizvodi) {
     if (proizvodPostoji()) {
       povecaj();
     } else {
       dodajUKorpu();
+      ispisNav(dohvatiLocal("nav"));
     }
   } else {
     dodajPrvi();
+    ispisNav(dohvatiLocal("nav"));
   }
   //Dodavanje prvog proizvoda , samo u slucaju da je korpa bila skroz prazna !
   function dodajPrvi() {
@@ -313,5 +320,143 @@ function addToCart(id) {
     };
     pr.push(obj);
     setujLocal("korpaProizvodi", pr);
+  }
+}
+
+if (url == "/cart.html") {
+  //ispis prozivoda
+  function ispisKorpa() {
+    let prKorpa = dohvatiLocal("korpaProizvodi");
+    let pr = dohvatiLocal("proizvodi");
+    let ispis = `<div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
+                 </div>`;
+
+    if (prKorpa.length) {
+      for (let p of prKorpa) {
+        let obj = pr.find((a) => a.id == p.id);
+        ispis += `
+                    <div class="card rounded-3 mb-4">
+                    <div class="card-body p-4">
+                      <div
+                        class="row d-flex justify-content-between align-items-center"
+                      >
+                        <div class="col-md-2 col-lg-2 col-xl-2">
+                          <img
+                            src="${obj.image.src}"
+                            class="img-fluid rounded-3"
+                            alt="${obj.image.alt}"
+                          />
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                          <p class="lead fw-normal mb-2">${obj.title}</p>
+                          <p>
+                            <span class="text-muted"> Region: ${obrada(
+                              obj.idRegion,
+                              market
+                            )}</span> 
+                            <p class="text-muted"> Cellular: ${obrada(
+                              obj.idCellular,
+                              cellular
+                            )}</p> 
+                          </p>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                          <button
+                            class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                          >
+                            <i class="fas fa-minus"></i>
+                          </button>
+              
+                          <input
+                            id="kol"
+                            min="0"
+                            name="quantity"
+                            value="${p.kolicina}"
+                            type="number"
+                            class="form-control form-control-sm"
+                          />
+              
+                          <button
+                            class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                          >
+                            <i class="fas fa-plus"></i>
+                          </button>
+                        </div>
+                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                          <h5 class="mb-0">$${(
+                            obj.price.new * p.kolicina
+                          ).toFixed(2)}</h5>
+                        </div>
+                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                          <button data-id='${
+                            obj.id
+                          }' class="btn text-danger btnBrisi">
+                          <i class="fas fa-trash fa-lg"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    `;
+      }
+    } else {
+      ispis = `<h1>Cart is empty</h1>`;
+    }
+    ispis += `<div class="card">
+    <div class="card-body">
+      <button type="button" class="btn boja btn-block btn-lg">
+        Proceed to Pay
+      </button>
+    </div>
+  </div>`;
+    document.querySelector("#ispisKart").innerHTML = ispis;
+
+    //Brisanje iz korpe
+    const sviBtnBrisi = Array.from(document.querySelectorAll(".btnBrisi"));
+    console.log(sviBtnBrisi);
+
+    for (let btn of sviBtnBrisi) {
+      btn.onclick = () => {
+        let id = btn.getAttribute("data-id");
+        let prKorpa = dohvatiLocal("korpaProizvodi");
+        let index = prKorpa.indexOf(prKorpa.find((a) => a.id == id));
+        prKorpa.splice(index, 1);
+        setujLocal("korpaProizvodi", prKorpa);
+        ispisKorpa();
+        ispisNav(dohvatiLocal("nav"));
+      };
+    }
+    //quantity u korpi
+    let kol = document.querySelector("#kol");
+    kol.onchange = () => {
+      //a
+    };
+
+    //Fix footera da se ne raspada
+    if (prKorpa.length < 3) {
+      document.getElementById("footer").classList.add("fix");
+    } else {
+      document.getElementById("footer").classList.remove("fix");
+    }
+  }
+  ispisKorpa();
+}
+function brojProizvoda() {
+  if (dohvatiLocal("korpaProizvodi")) {
+    return dohvatiLocal("korpaProizvodi").length;
+  } else {
+    return "0";
+  }
+}
+brojProizvoda();
+
+function obrada(id, niz) {
+  for (let r of niz) {
+    if (r.id == id) {
+      return r.naziv;
+    }
   }
 }
