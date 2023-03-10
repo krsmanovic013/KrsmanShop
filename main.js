@@ -1,7 +1,6 @@
 //Lokacija stranice
 let url = window.location.pathname;
 url = url.substring(url.lastIndexOf("/"));
-
 window.onload = () => {
   //Dohvatanje podataka i setovanje u local storage
   ajax("data/products.json", "proizvodi");
@@ -12,7 +11,6 @@ window.onload = () => {
   if (url == "/index.html" || url == "/") {
     ispisTrending(trending);
   }
-
   if (url == "/shop.html") {
     document.querySelector("#ddlSelect").onchange = () => {
       ispisProzivoda(products);
@@ -135,17 +133,12 @@ if (url == "/shop.html") {
         addToCart(idProizvoda);
       };
     }
-
-    // if (data.length < 5) {
-    //   document.querySelector("#futer").classList.add("fix");
-    // } else {
-    //   document.querySelector("#futer").classList.remove("fix");
-    // }
   }
 
   //Search po name-u
   const search = document.querySelector("#search");
   search.onkeyup = () => {
+    console.log("rr");
     let val = search.value;
     let novi = products.filter(
       (a) => a.title.toLowerCase().indexOf(val.toLowerCase()) != -1
@@ -276,7 +269,6 @@ ispisNav(nav);
 document.querySelector("#god").innerHTML = new Date().getFullYear();
 
 //CART
-
 function addToCart(id) {
   let korpaProizvodi = dohvatiLocal("korpaProizvodi");
   if (korpaProizvodi) {
@@ -425,8 +417,6 @@ if (url == "/cart.html") {
         ispisNav(dohvatiLocal("nav"));
       };
     }
-    //quantity u korpi
-
     //Fix footera da se ne raspada veliki i srednji ekrani
     if (prKorpa.length < 3) {
       document.getElementById("footer").classList.add("fix");
@@ -543,25 +533,21 @@ if (url == "/contact-us.html") {
   ime.onblur = () => {
     proveriIme();
   };
-
   //Provera email-a
   const email = document.querySelector("#email");
   email.onblur = () => {
     proveriEmail();
   };
-
   //Provera DDL region
   const ddl = document.querySelector("#ddl");
   ddl.onchange = () => {
     proveriDdl();
   };
-
   //Provera msg
   const msg = document.querySelector("#msg");
   msg.onblur = () => {
     proveriMsg();
   };
-
   //Provera checkbox-a
   const box = document.querySelector("#chb");
   box.onclick = () => {
@@ -603,7 +589,7 @@ if (url == "/index.html") {
     </div>
       `;
     }
-    // div.innerHTML = ispis;
+    //div.innerHTML = ispis;
   }
-  // ispisTrending(trending);
+  //ispisTrending(trending);
 }
