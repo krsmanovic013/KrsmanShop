@@ -161,3 +161,11 @@ header {
 #blok1 {
   margin-bottom: 200px;
 }
+@media (min-width: 992px) {
+  .dole1 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

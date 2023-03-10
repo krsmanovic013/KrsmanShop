@@ -589,8 +589,6 @@ if (url == "/contact-us.html") {
   };
 }
 
-//Author sekcija
-
 if (url == "/index.html") {
   var div = document.querySelector("#trending");
   ajax("data/trending.json", "trending");
@@ -605,7 +603,7 @@ if (url == "/index.html") {
     </div>
       `;
     }
-    div.innerHTML = ispis;
+    // div.innerHTML = ispis;
   }
   // ispisTrending(trending);
 }
