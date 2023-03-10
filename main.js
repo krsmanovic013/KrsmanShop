@@ -136,11 +136,11 @@ if (url == "/shop.html") {
       };
     }
 
-    if (data.length < 5) {
-      document.querySelector("#futer").classList.add("fix");
-    } else {
-      document.querySelector("#futer").classList.remove("fix");
-    }
+    // if (data.length < 5) {
+    //   document.querySelector("#futer").classList.add("fix");
+    // } else {
+    //   document.querySelector("#futer").classList.remove("fix");
+    // }
   }
 
   //Search po name-u
